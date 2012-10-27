@@ -5789,5 +5789,11 @@ a.badge:hover {
 	width: 500px;
 	overflow:auto:
 }
+
+.outfitDiv{
+	border:2px black solid;
+	min-height:100px;
+	min-width:100px;
+	}
 	
 	

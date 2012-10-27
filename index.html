@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Welcome to Clothes!</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 
 <div id="calendar">
-<form class="form-search">
+
   Enter Date:<input type="text" class="input-medium search-query">
-  <button onclick="showOutfit()" class="btn">Show Outfit</button>
-</form>
+<!--  <button onclick="showOutfit()" class="btn">Show Outfit</button>-->
+  <INPUT type="button" class="btn" value="Show Outfit" onclick="showOutfit()" />
+
 </div>
 
-<div id="outfitDiv" class="container">
+<div id="outfitDiv" class="container outfitDiv">
 </div>
 
-<INPUT type="button" value="Add Selected Items to Outfit"
+<INPUT type="button"  class="btn" value="Add Selected Items to Outfit"
 	onclick="addSelectedItemsToOutfit()" />
 
 
@@ -147,10 +149,8 @@
 <div id="allModals"></div>
 
 <div>
-<INPUT type="button" value="Add New Item"
-	onclick="addRow('wardrobeTable')" />
-<INPUT type="button" value="Delete Selected Items"
-	onclick="deleteRow('wardrobeTable')" />
+<INPUT type="button" value="Add New Item" class="btn" onclick="addRow('wardrobeTable')" />
+<INPUT type="button" value="Delete Selected Items" class="btn" onclick="deleteRow('wardrobeTable')" />
 </div>
 
 </body>
@@ -162,32 +162,14 @@
 
 
 function showOutfit(){
-	
-	addItemToOutfit("whiteBlouse","images/WhiteBlouse.jpeg" );
+	try {
+		addItemToOutfit("White Blouse","images/whiteBlouse.jpeg" );
 
-	addItemToOutfit("jeans","images/jeans.jpeg" );
-	
-	
-
-<!--	var item1 = document.createElement("div");-->
-<!--	var item1 = document.createElement("img");-->
-<!--	item1.src="images/WhiteBlouse.jpeg";-->
-<!--	item1.className="itemImg";-->
-<!---->
-<!--	outfitDiv.appendChild(item1);-->
-<!---->
-<!--	var item2 = document.createElement("img");-->
-<!--	item2.src="images/jeans.jpeg";-->
-<!--	item2.className="itemImg";-->
-<!---->
-<!--	outfitDiv.appendChild(item2);-->
-<!---->
-<!--	var item3 = document.createElement("img");-->
-<!--	item3.src="images/greenTShirt.jpeg";-->
-<!--	item3.className="itemImg";-->
-<!---->
-<!--	outfitDiv.appendChild(item3);-->
-
+		addItemToOutfit("Jeans","images/jeans.jpeg" );
+	}
+	catch (e) {
+		alert(e);
+	}
 }
 
 function addItemToOutfit(itemName, itemSrc){
@@ -233,7 +215,7 @@ function addSelectedItemsToOutfit(){
 			var row = table.rows[i];
 			var chkbox = row.cells[11].childNodes[0];
 			if (null != chkbox && true == chkbox.checked) {
-				var itemName = row.cells[1].childNodes[0];
+				var itemName = row.cells[1].childNodes[0].nodeValue;
 				var photoSource = row.cells[0].childNodes[0].getAttribute("src");
 
 				addItemToOutfit(itemName, photoSource);
@@ -305,15 +287,15 @@ function addRow(tableID) {
 
 
 
-		var photoModal = createAddPhotoModal(rowCount);
-		var allModals = document.getElementById("allModals");
-		allModals.appendChild(photoModal);
-		
+<!--		var photoModal = createAddPhotoModal(rowCount);-->
+<!--		var allModals = document.getElementById("allModals");-->
+<!--		allModals.appendChild(photoModal);-->
+<!--		-->
 		var addFileButton = document.createElement("a");
-		addFileButton.href="#" + photoModal.id;
+<!--		addFileButton.href="#" + photoModal.id;-->
 		addFileButton.role="button";
 		addFileButton.class="btn";
-		addFileButton.setAttribute("data-toggle","modal");
+<!--		addFileButton.setAttribute("data-toggle","modal");-->
 		addFileButton.innerHTML="Add Photo";
 		cellPhoto.appendChild(addFileButton);
 	
