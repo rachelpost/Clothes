@@ -5780,8 +5780,8 @@ a.badge:hover {
 }
 
 .closetTable{
-	height:500px;
-	width: 500px;
+	height: 500px !important;
+    overflow: scroll;
 }
 
 .closetDiv{
@@ -5793,7 +5793,46 @@ a.badge:hover {
 .outfitDiv{
 	border:2px black solid;
 	min-height:100px;
-	min-width:100px;
+	width:500px !important;
+	
+	 overflow: auto;
+	
 	}
 	
+.centerText{
+	text-align: center !important;
+}
 	
+.centerBlock{
+	text-align: center !important;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.floatRight{
+	float:right;
+}
+.floatLeft{
+	float:left;
+}
+	
+	
+.center-table
+{
+  margin: 0 auto !important;
+  float: none !important;
+}
+
+.bottomSpace10{
+	margin-bottom:10px;
+	}
+	
+.bottomSpace50{
+	margin-bottom:50px;
+	}
+	
+.spaceRight{
+	margin-right:15px;
+	}
+
+
