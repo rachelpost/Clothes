@@ -28,7 +28,10 @@
 </div>
 
 <div class="row centerText bottomSpace10">
+
 <span> 
+<input type="text" id="searchInput" class="input-medium search-query marginLeft0 floatLeft">
+<INPUT type="button" value="Search" class="btn floatLeft" onclick="doSearch()" />
 <INPUT type="button" class="btn spaceRight" value="Add Selected Items to Outfit" onclick="addSelectedItemsToOutfit()"/>
 <INPUT type="button" value="Add New Item to Wardrobe" class="btn spaceRight" onclick="addRow('wardrobeTable')" />
 <INPUT type="button" value="Delete Selected Items from Wardrobe" class="btn spaceRight" onclick="deleteConfirmation()" />
@@ -40,7 +43,7 @@
 
 <div class="closetTable row-fluid">
 <div id="closet" class="centerBlock ">
-<table id="wardrobeTable" class="table table-hover">
+<table id="wardrobeTable" class="table table-hover marginLeft0">
 	<caption></caption>
 	<thead>
 		<tr>
@@ -433,6 +436,13 @@ function addRow(tableID) {
 			alert(e);
 		}
 	}
+
+function doSearch(){
+	<!--	populate Search with "blouse"-->
+	var searchInput = document.getElementById("searchInput");
+	searchInput.value = "blouse";
+
+}
 
 function getCurrentDate(){
 	var today = new Date();
