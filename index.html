@@ -10,30 +10,32 @@
 <script src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/jquery-1.8.2.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/jquery.dataTables.js"></script>
+<script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" charset="utf-8">
-			/* Table initialisation */
-			$(document).ready(function() {
-				$('#wardrobeTable').dataTable( {
-					"sDom": "<'row'<'span3'f>r>t>",
-					"bPaginate": false,
-					"bInfo":false,
-					"aoColumns": [
-						{ "sWidth": "50px" },
-						{ "sWidth": "150px" },
-						{ "sWidth": "150px" },
-						{ "sWidth": "90px" },
-						{ "sWidth": "80px" },
-						{ "sWidth": "90px" },
-						{ "sWidth": "80px" },
-						{ "sWidth": "90px" },
-						{ "sWidth": "80px" },
-						{ "sWidth": "70px" },
-						{ "sWidth": "90px" },
-						{ "sWidth": "50px" },
-					]
-				} );
-			} );
-		</script>
+/* Table initialisation */
+$(document).ready(function() {
+	var wardrobeTable = $('#wardrobeTable').dataTable( {
+		"sDom": "<'row'<'span3'f>r>t>",
+		"bPaginate": false,
+		"bInfo":false,
+		"aoColumns": [
+			{ "sWidth": "50px" },
+			{ "sWidth": "150px" },
+			{ "sWidth": "150px" },
+			{ "sWidth": "90px" },
+			{ "sWidth": "80px" },
+			{ "sWidth": "90px" },
+			{ "sWidth": "80px" },
+			{ "sWidth": "90px" },
+			{ "sWidth": "80px" },
+			{ "sWidth": "70px" },
+			{ "sWidth": "90px" },
+			{ "sWidth": "50px" },
+		]
+	} );
+	
+} );
+</script>
 </head>
 
 
@@ -43,10 +45,26 @@
 <div class="centerBlock page-header">
 <h1>Outfits</h1>
 </div>
-<div class="centerBlock bottomSpace10"><span> Enter Date: <input type="text" id="dateInput" class="input-medium search-query"
-/> <input type="button" class="btn" value="Show Outfit"
-	onclick="showOutfit()"
-/> </span></div>
+
+<div class="centerBlock bottomSpace10">
+<form>
+        <fieldset>   
+          <div class="clearfix">
+            <div class="input">
+              <div class="inline-inputs">
+              <span>
+               	<label>Enter Date:</label>
+                <input id="dateInput" data-datepicker="datepicker" class="small" type="text" value="01/05/2011" style="margin-bottom:0px"/>
+                <input type="button" class="btn" value="Show Outfit" onclick="showOutfit()"/>
+                </span>
+              </div>
+            </div>
+          </div><!-- /clearfix -->
+        </fieldset>
+      </form> 
+</div>
+
+
 <div id="outfitDiv" class="outfitDiv centerBlock bottomSpace50"></div>
 <div class="row centerBlock"></div>
 
@@ -89,16 +107,16 @@
 		<tr>
 			<td><img class="itemImg" src="images/blackBlouse.jpeg"
 				alt="Black Blouse"></td>
-			<td contenteditable="true">Black Blouse</td>
-			<td contenteditable="true">Black silk bib blouse</td>
-			<td contenteditable="true">black</td>
-			<td contenteditable="true">Blouse</td>
-			<td contenteditable="true">13-Jan-2012</td>
-			<td contenteditable="true">$129.00</td>
-			<td contenteditable="true">Nordstrom</td>
-			<td contenteditable="true">32</td>
-			<td contenteditable="true">$5.43</td>
-			<td contenteditable="true">1-Oct-2012</td>
+			<td class="canEdit">Black Blouse</td>
+			<td class="canEdit">Black silk bib blouse</td>
+			<td class="canEdit">black</td>
+			<td class="canEdit">Blouse</td>
+			<td class="canEdit">13-Jan-2012</td>
+			<td class="canEdit">$129.00</td>
+			<td class="canEdit">Nordstrom</td>
+			<td class="canEdit">32</td>
+			<td class="canEdit">$5.43</td>
+			<td class="canEdit">1-Oct-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
 
@@ -528,6 +546,30 @@ else
   }
 
 }
+
+/* Update datepicker plugin so that MM/DD/YYYY format is used. */
+$.extend($.fn.datepicker.defaults, {
+  parse: function (string) {
+    var matches;
+    if ((matches = string.match(/^(\d{2,2})\/(\d{2,2})\/(\d{4,4})$/))) {
+      return new Date(matches[3], matches[1] - 1, matches[2]);
+    } else {
+      return null;
+    }
+  },
+  format: function (date) {
+    var
+      month = (date.getMonth() + 1).toString(),
+      dom = date.getDate().toString();
+    if (month.length === 1) {
+      month = "0" + month;
+    }
+    if (dom.length === 1) {
+      dom = "0" + dom;
+    }
+    return month + "/" + dom + "/" + date.getFullYear();
+  }
+});  
 
 </SCRIPT>
 </html>
