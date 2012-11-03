@@ -7,7 +7,7 @@
 <title>Welcome to Clothes!</title>
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-<script src="bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/jquery-1.8.2.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/jquery.dataTables.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap-datepicker.js"></script>
@@ -87,7 +87,8 @@ $(document).ready(function() {
 <div class="row centerText bottomSpace20">
 <span> 
 <INPUT type="button" class="btn spaceRight" value="Add Selected Items to Outfit" onclick="addSelectedItemsToOutfit()"/>
-<INPUT type="button" value="Add New Item to Wardrobe" class="btn spaceRight" onclick="addRow('wardrobeTable')" />
+<!--<INPUT type="button" value="Add New Item to Wardrobe" class="btn spaceRight" onclick="addRow('wardrobeTable')" />-->
+<a data-toggle="modal" href="#addNewItemDialog" class="btn spaceRight" onclick="addRow('wardrobeTable')">Add New Item to Wardrobe</a>
 <a data-toggle="modal" href="#deleteConfirmationDialog" class="btn spaceRight">Delete Selected Items from Wardrobe</a>
 
 </span>
@@ -98,7 +99,7 @@ $(document).ready(function() {
 
 
 <div class="closetTable row-fluid">
-<div id="closet" class="centerBlock ">
+<div id="closet" class="centerBlock bottomSpace50">
 
 
 <table cellpadding="0" cellspacing="0" border="0" class="bordered-table table-hover" id="wardrobeTable">
@@ -222,7 +223,7 @@ $(document).ready(function() {
 
 <div class="modal hide fade" id="deleteConfirmationDialog">
 	<div class="modal-header">
-		<h3>Testing Window</h3>
+		<h3>Delete Confirmation</h3>
 	</div>
 	<div id="deleteConfirmationBody" class="modal-body">
 	</div>
@@ -232,8 +233,17 @@ $(document).ready(function() {
 	</div>
 </div>
 				
-				
-
+<div class="modal hide fade" id="addNewItemDialog">
+	<div class="modal-header">
+		<h3>You've added a new item!</h3>
+	</div>
+	<div class="modal-body">
+		Select table cells to edit the content at any time- your changes will be saved automatically!
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn " onclick="closeAddItemDialog();">OK</a>
+	</div>
+</div>		
 
 </body>
 

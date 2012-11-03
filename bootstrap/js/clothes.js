@@ -168,12 +168,12 @@ function createAddPhotoModal(rowNumber){
 
 function addRow(tableID) {
 
-		var table = document.getElementById(tableID);
+	var table = document.getElementById(tableID);
 
-		var rowCount = table.rows.length;
-		var row = table.insertRow(rowCount);
+	var rowCount = table.rows.length;
+	var row = table.insertRow(rowCount);
 
-		var cellPhoto = row.insertCell(0);
+	var cellPhoto = row.insertCell(0);
 //<!--		var selectPhotoFile = document.createElement("button");-->
 //<!--		 selectPhotoFile.onclick = (function() {-->
 //<!--		      return function() { -->
@@ -194,85 +194,77 @@ function addRow(tableID) {
 		addFileButton.role="button";
 		addFileButton.class="btn";
 //<!--		addFileButton.setAttribute("data-toggle","modal");-->
-		addFileButton.innerHTML="Add Photo";
-		cellPhoto.appendChild(addFileButton);
+	addFileButton.innerHTML="Add Photo";
+	cellPhoto.appendChild(addFileButton);
+
+	var cellName = row.insertCell(1);
+	cellName.innerHTML = "Name";
+	cellName.setAttribute("contenteditable", "true");
 	
-		var cellName = row.insertCell(1);
-		cellName.innerHTML = "Name";
-		cellName.setAttribute("contenteditable", "true");
+	var cellDesc = row.insertCell(2);
+	cellDesc.innerHTML = "Desc";
+	cellDesc.setAttribute("contenteditable", "true");
+	
+	var cellColor = row.insertCell(3);
+	cellColor.innerHTML = "Color";
+	cellColor.setAttribute("contenteditable", "true");
+	
+	var cellCategory = row.insertCell(4);
+	cellCategory.innerHTML = "Category";
+	cellCategory.setAttribute("contenteditable", "true");
 		
-		var cellDesc = row.insertCell(2);
-		cellDesc.innerHTML = "Desc";
-		cellDesc.setAttribute("contenteditable", "true");
-		
-		var cellColor = row.insertCell(3);
-		cellColor.innerHTML = "Color";
-		cellColor.setAttribute("contenteditable", "true");
-		
-		var cellCategory = row.insertCell(4);
-		cellCategory.innerHTML = "Category";
-		cellCategory.setAttribute("contenteditable", "true");
-			
-		var cellDateAdded = row.insertCell(5);
-		cellDateAdded.innerHTML = "DateAdded";
-		cellDateAdded.setAttribute("contenteditable", "true");
-		
-		var cellCost = row.insertCell(6);
-		cellCost.innerHTML = "Cost";
-		cellCost.setAttribute("contenteditable", "true");
-		
-		var cellStore = row.insertCell(7);
-		cellStore.innerHTML = "Store";
-		cellStore.setAttribute("contenteditable", "true");
-		
-		var cellNoWorn = row.insertCell(8);
-		cellNoWorn.innerHTML = "#Worn";
-		cellNoWorn.setAttribute("contenteditable", "true");
-		
-		var cellCostPerWear = row.insertCell(9);
-		cellCostPerWear.innerHTML = "CostPerWear";
-		cellCostPerWear.setAttribute("contenteditable", "true");
-		
-		var cellLastWorn = row.insertCell(10);
-		cellLastWorn.innerHTML = "LastWorn";
-		cellLastWorn.setAttribute("contenteditable", "true");
+	var cellDateAdded = row.insertCell(5);
+	cellDateAdded.innerHTML = "DateAdded";
+	cellDateAdded.setAttribute("contenteditable", "true");
+	
+	var cellCost = row.insertCell(6);
+	cellCost.innerHTML = "Cost";
+	cellCost.setAttribute("contenteditable", "true");
+	
+	var cellStore = row.insertCell(7);
+	cellStore.innerHTML = "Store";
+	cellStore.setAttribute("contenteditable", "true");
+	
+	var cellNoWorn = row.insertCell(8);
+	cellNoWorn.innerHTML = "#Worn";
+	cellNoWorn.setAttribute("contenteditable", "true");
+	
+	var cellCostPerWear = row.insertCell(9);
+	cellCostPerWear.innerHTML = "CostPerWear";
+	cellCostPerWear.setAttribute("contenteditable", "true");
+	
+	var cellLastWorn = row.insertCell(10);
+	cellLastWorn.innerHTML = "LastWorn";
+	cellLastWorn.setAttribute("contenteditable", "true");
 
 
-		 var cellSelect = row.insertCell(11);
-         var selectElement = document.createElement("input");
-         selectElement.type = "checkbox";
-         cellSelect.appendChild(selectElement);
-
-         alert("Select cell to edit content at any time- your changes will be saved automatically");
-
-	}
-
-	function deleteRows(tableID) {
-		try {
-			var table = document.getElementById(tableID);
-			var rowCount = table.rows.length;
-
-			for ( var i = 0; i < rowCount; i++) {
-				var row = table.rows[i];
-				var chkbox = row.cells[11].childNodes[0];
-				if (null != chkbox && true == chkbox.checked) {
-					table.deleteRow(i);
-					rowCount--;
-					i--;
-				}
-
-			}
-		} catch (e) {
-			alert(e);
-		}
-	}
-
-function doSearch(){
-	<!--	populate Search with "blouse"-->
-	var searchInput = document.getElementById("searchInput");
-	searchInput.value = "blouse";
-
+	 var cellSelect = row.insertCell(11);
+     var selectElement = document.createElement("input");
+     selectElement.type = "checkbox";
+     cellSelect.appendChild(selectElement);
 }
+
+function deleteRows(tableID) {
+	try {
+		var table = document.getElementById(tableID);
+		var rowCount = table.rows.length;
+
+		for ( var i = 0; i < rowCount; i++) {
+			var row = table.rows[i];
+			var chkbox = row.cells[11].childNodes[0];
+			if (null != chkbox && true == chkbox.checked) {
+				table.deleteRow(i);
+				rowCount--;
+				i--;
+			}
+
+		}
+	} catch (e) {
+		alert(e);
+	}
+}
+
+
 
 function getCurrentDate(){
 	var today = new Date();
@@ -305,12 +297,9 @@ function getCheckedNames(){
 			var row = table.rows[i];
 			var chkbox = row.cells[11].childNodes[0];
 			if (null != chkbox && true == chkbox.checked) {
-				var itemName = row.cells[1].childNodes[0].nodeValue;
-				
-				result += itemName + "<br />";
-				
+				var itemName = row.cells[1].childNodes[0].nodeValue;				
+				result += itemName + "<br />";				
 			}
-
 		}
 	} catch (e) {
 		alert(e);
@@ -319,23 +308,11 @@ function getCheckedNames(){
 	return result;
 }
 
-function deleteConfirmation()
-{		
-	var itemsToDelete = getCheckedNames();
-	
-
-var r=confirm("Are you sure you want to delete the following items from your wardrobe?" + itemsToDelete);
-if (r==true)
-  {
-	deleteRows('wardrobeTable');
-  }
-else
-  {
-	alert("No items will be deleted from your wardrobe!");
-  }
-
-}
-
 function closeDeleteDialog() {
 	$('#deleteConfirmationDialog').modal('hide'); 
 };
+
+function closeAddItemDialog() {
+	$('#addNewItemDialog').modal('hide'); 
+};
+
