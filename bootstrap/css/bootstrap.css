@@ -5781,21 +5781,17 @@ a.badge:hover {
 
 .closetTable{
 	height: 400px !important;
-    overflow: scroll;
 }
 
 .closetDiv{
 	height:500px;
 	width: 500px;
-	overflow:auto:
 }
 
 .outfitDiv{
 	border:2px black solid;
 	min-height:100px;
 	width:500px !important;
-	
-	 overflow: auto;
 	
 	}
 	

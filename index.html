@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
@@ -7,10 +8,36 @@
 <!-- Bootstrap -->
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script src="bootstrap/js/bootstrap.js"></script>
-<script src="bootstrap/js/bootbox.js"></script>
+<script type="text/javascript" language="javascript" src="bootstrap/js/jquery-1.8.2.js"></script>
+<script type="text/javascript" language="javascript" src="bootstrap/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8">
+			/* Table initialisation */
+			$(document).ready(function() {
+				$('#wardrobeTable').dataTable( {
+					"sDom": "<'row'<'span3'f>r>t>",
+					"bPaginate": false,
+					"bInfo":false,
+					"aoColumns": [
+						{ "sWidth": "50px" },
+						{ "sWidth": "150px" },
+						{ "sWidth": "150px" },
+						{ "sWidth": "90px" },
+						{ "sWidth": "80px" },
+						{ "sWidth": "90px" },
+						{ "sWidth": "80px" },
+						{ "sWidth": "90px" },
+						{ "sWidth": "80px" },
+						{ "sWidth": "70px" },
+						{ "sWidth": "90px" },
+						{ "sWidth": "50px" },
+					]
+				} );
+			} );
+		</script>
 </head>
-<body onload="preparePage()">
 
+
+<body onload="preparePage()">
 
 
 <div class="centerBlock page-header">
@@ -28,14 +55,10 @@
 </div>
 
 <div class="row centerText bottomSpace20">
-
 <span> 
-<input type="text" id="searchInput" class="input-medium search-query marginLeft0 floatLeft">
-<INPUT type="button" value="Search" class="btn floatLeft" onclick="doSearch()" />
 <INPUT type="button" class="btn spaceRight" value="Add Selected Items to Outfit" onclick="addSelectedItemsToOutfit()"/>
 <INPUT type="button" value="Add New Item to Wardrobe" class="btn spaceRight" onclick="addRow('wardrobeTable')" />
 <INPUT type="button" value="Delete Selected Items from Wardrobe" class="btn spaceRight" onclick="deleteConfirmation()" />
-<!--onclick="deleteRows('wardrobeTable')"-->
 </span>
 </div>
 
@@ -43,8 +66,9 @@
 
 <div class="closetTable row-fluid">
 <div id="closet" class="centerBlock ">
-<table id="wardrobeTable" class="table table-hover marginLeft0">
-	<caption></caption>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="bordered-table table-hover" id="wardrobeTable">
 	<thead>
 		<tr>
 			<th>Photo</th>
@@ -158,7 +182,6 @@
 			<td contenteditable="true">2-Sept-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
-
 	</tbody>
 </table>
 </div>
