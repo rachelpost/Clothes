@@ -275,6 +275,6 @@ $.fn.datepicker.defaults = {
 monthNames: ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"]
 , shortDayNames: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-, startOfWeek: 1
+, startOfWeek: 0
 };
 }( window.jQuery || window.ender );

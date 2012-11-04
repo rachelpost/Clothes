@@ -254,10 +254,20 @@ function deleteRows(tableID) {
 function getCurrentDate(){
 	var today = new Date();
 	var dd = today.getDate();
-	var mm = today.getMonth()+1; //January is 0!
+	var mm = today.getMonth(); //January is 0!
 
 	var yyyy = today.getFullYear();
-	if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = mm+'/'+dd+'/'+yyyy;
+	
+	var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+		 	             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	
+	
+    var month = monthNames[mm];
+	
+	if(dd<10){dd='0'+dd} 
+	if(mm<10){mm='0'+mm} 
+	
+	today = dd + '-' + month + '-' + yyyy;
 
 	return today;
 }
