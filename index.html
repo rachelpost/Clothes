@@ -13,6 +13,7 @@
 <script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap-modal.js"></script>
 <script type="text/javascript" language="javascript" src="bootstrap/js/clothes.js"></script>
+<script type="text/javascript" language="javascript" src="bootstrap/js/bootstrap-fileupload.js"></script>
 <script type="text/javascript" charset="utf-8">
 /* Table initialisation */
 $(document).ready(function() {
@@ -29,7 +30,7 @@ $(document).ready(function() {
 		"bPaginate": false,
 		"bInfo":false,
 		"aoColumns": [
-			{ "sWidth": "50px" },
+			{ "sWidth": "300px" },
 			{ "sWidth": "150px" },
 			{ "sWidth": "150px" },
 			{ "sWidth": "90px" },
@@ -118,27 +119,63 @@ $(document).ready(function() {
 			<th>Last Worn</th>
 			<th>Select</th>
 		</tr>
-	</thead>
+		</thead>
 	<tbody>
 		<tr>
-			<td><img class="itemImg" src="images/blackBlouse.jpeg"
-				alt="Black Blouse"></td>
+<!--			<td><img class="itemImg" src="images/blackBlouse.jpeg"-->
+<!--				alt="Black Blouse"></td>-->
+
+			<td>
+				<span>
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/blackBlouse.jpeg">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</span>
+			</td>
+
 			<td class="canEdit">Black Blouse</td>
 			<td class="canEdit">Black silk bib blouse</td>
 			<td class="canEdit">black</td>
 			<td class="canEdit">Blouse</td>
 			<td class="canEdit">13-Jan-2012</td>
-			<td class="canEdit">$129.00</td>
+			<td class="canEdit">129.00</td>
 			<td class="canEdit">Nordstrom</td>
 			<td class="canEdit">32</td>
-			<td class="canEdit">$5.43</td>
+			<td class="canEdit">5.43</td>
 			<td class="canEdit">1-Oct-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
 
-		<tr>
-			<td><img class="itemImg" src="images/greenTShirt.jpeg"
-				alt="Green Tee"></td>
+		<tr>	
+				<td>
+				<span>
+					
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/greenTShirt.jpeg" alt="Green Tee">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</span>
+			</td>
+			
 			<td contenteditable="true">Green Tee Shirt</td>
 			<td contenteditable="true">Green cotton short-sleeved tee-shirt</td>
 			<td contenteditable="true">green</td>
@@ -147,13 +184,29 @@ $(document).ready(function() {
 			<td contenteditable="true">9.99</td>
 			<td contenteditable="true">Gap</td>
 			<td contenteditable="true">22</td>
-			<td contenteditable="true">$0.28</td>
+			<td contenteditable="true">0.28</td>
 			<td contenteditable="true">8-Aug-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
 
 		<tr>
-			<td><img class="itemImg" src="images/jeans.jpeg" alt="Jeans"></td>
+			<td>
+				<div>
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/jeans.jpeg" alt="Jeans">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</div>
+			</td>
 			<td contenteditable="true">Jeans</td>
 			<td contenteditable="true">Joe's jeans bootcut</td>
 			<td contenteditable="true">blue</td>
@@ -162,46 +215,101 @@ $(document).ready(function() {
 			<td contenteditable="true">258.00</td>
 			<td contenteditable="true">Bloomingdale's</td>
 			<td contenteditable="true">55</td>
-			<td contenteditable="true">$1.25</td>
+			<td contenteditable="true">1.25</td>
 			<td contenteditable="true">15-Oct-2012</td>
 			<td><INPUT type="checkbox" name="chk"/></td>
 		</tr>
 
 		<tr>
-			<td><img class="itemImg"
-				src="images/orangeLongSleevedTShirt.jpeg" alt="Orange Tee"></td>
+<!--			<td><img class="itemImg"-->
+<!--				src="images/orangeLongSleevedTShirt.jpeg" alt="Orange Tee"></td>-->
+<!--			<td>-->
+				
+			<td>
+				<div>
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/orangeLongSleevedTShirt.jpeg" alt="Orange Tee">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</div>
+			</td>
 			<td contenteditable="true">Orange Tee</td>
 			<td contenteditable="true">Orange long-sleeved tee-shirt</td>
 			<td contenteditable="true">Orange</td>
 			<td contenteditable="true">Tees</td>
 			<td contenteditable="true">24-Mar-2012</td>
-			<td contenteditable="true">$23.88</td>
+			<td contenteditable="true">23.88</td>
 			<td contenteditable="true">Loft</td>
 			<td contenteditable="true">3</td>
-			<td contenteditable="true">$8.76</td>
+			<td contenteditable="true">8.76</td>
 			<td contenteditable="true">9-Sep-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
 
 		<tr>
-			<td><img class="itemImg" src="images/redDress.jpeg"
-				alt="Red Dress"></td>
+<!--			<td><img class="itemImg" src="images/redDress.jpeg"-->
+<!--				alt="Red Dress"></td>-->
+
+			<td>
+				<div>
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/redDress.jpeg" alt="Red Dress">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</div>
+			</td>
 			<td contenteditable="true">Red Dress</td>
 			<td contenteditable="true">Red Strapless Dress</td>
 			<td contenteditable="true">Red</td>
 			<td contenteditable="true">Dress</td>
 			<td contenteditable="true">3-Dec-2011</td>
-			<td contenteditable="true">$500.84</td>
+			<td contenteditable="true">500.84</td>
 			<td contenteditable="true">Neiman Marcus</td>
 			<td contenteditable="true">2</td>
-			<td contenteditable="true">$250.94</td>
+			<td contenteditable="true">250.94</td>
 			<td contenteditable="true">1-Jan-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>
 
 		<tr>
-			<td><img class="itemImg" src="images/whiteBlouse.jpeg"
-				alt="White Blouse"></td>
+<!--			<td><img class="itemImg" src="images/whiteBlouse.jpeg"-->
+<!--				alt="White Blouse"></td>-->
+
+			<td>
+				<div>
+					<div class="fileupload fileupload-exists" data-provides="fileupload">
+	   					<div class="fileupload-preview thumbnail" style="max-width: 100px; max-height: 100px; width: 100px; height: 100px;">
+	   					<img class="itemImg" src="images/whiteBlouse.jpeg" alt="White Blouse">
+	   					</div>
+	   					<div>
+	   						<div class="btn btn-file">
+	   							<span class="fileupload-new"><i class="icon-pencil"></i></span>
+	   							<span class="fileupload-exists"><i class="icon-pencil"></i></span>
+	   							<input type="file" />
+	   						</div>
+	   						<a href="#" class="btn fileupload-exists" data-dismiss="fileupload"><i class="icon-remove"></i></a>
+	   					</div>
+	   				</div>
+	   			</div>
+			</td>
 			<td contenteditable="true">White Blouse</td>
 			<td contenteditable="true" width="100px">White bib blouse cotton that I really liked
 			but then I got a ketchup stain on it and i'm not sure it will come
@@ -209,10 +317,10 @@ $(document).ready(function() {
 			<td contenteditable="true">white</td>
 			<td contenteditable="true">Blouse</td>
 			<td contenteditable="true">14-Feb-2012</td>
-			<td contenteditable="true">$0.00</td>
+			<td contenteditable="true">0.00</td>
 			<td contenteditable="true">Brent</td>
 			<td contenteditable="true">16</td>
-			<td contenteditable="true">$0.00</td>
+			<td contenteditable="true">0.00</td>
 			<td contenteditable="true">2-Sept-2012</td>
 			<td><INPUT type="checkbox" name="chk" /></td>
 		</tr>

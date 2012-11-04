@@ -43,7 +43,6 @@ function addOutfitDivHeader(txt){
 	var dateText = document.createElement("h3");
 	dateText.innerHTML="Outfit for " + txt;
 	dateText.id="outfitHeader";
-<!--	dateText.className="";-->
 
 	var outfitDiv= document.getElementById("outfitDiv");
 	outfitDiv.insertBefore(dateText, outfitDiv.firstChild);
@@ -93,8 +92,11 @@ function addSelectedItemsToOutfit(){
 			var chkbox = row.cells[11].childNodes[0];
 			if (null != chkbox && true == chkbox.checked) {
 				var itemName = row.cells[1].childNodes[0].nodeValue;
-				var photoSource = row.cells[0].childNodes[0].getAttribute("src");
-
+				//var photoSource = row.cells[0].childNodes[0].getAttribute("src");
+				var imgChild = row.cells[0].childNodes[1].childNodes[1].childNodes[1].childNodes[1];
+				
+				var photoSource = imgChild.getAttribute("src");
+				
 				addItemToOutfit(itemName, photoSource);
 				
 			}
@@ -174,28 +176,11 @@ function addRow(tableID) {
 	var row = table.insertRow(rowCount);
 
 	var cellPhoto = row.insertCell(0);
-//<!--		var selectPhotoFile = document.createElement("button");-->
-//<!--		 selectPhotoFile.onclick = (function() {-->
-//<!--		      return function() { -->
-//<!--		    	  addPhotoToRow(rowCount + '');-->
-//<!--		      }-->
-//<!--		   })();		   -->
-//<!--		 selectPhotoFile.innerHTML="Add Photo";-->
-//<!--         cellPhoto.appendChild(selectPhotoFile);-->
 
 
-
-//<!--		var photoModal = createAddPhotoModal(rowCount);-->
-//<!--		var allModals = document.getElementById("allModals");-->
-//<!--		allModals.appendChild(photoModal);-->
-//<!--		-->
-		var addFileButton = document.createElement("a");
-//<!--		addFileButton.href="#" + photoModal.id;-->
-		addFileButton.role="button";
-		addFileButton.class="btn";
-//<!--		addFileButton.setAttribute("data-toggle","modal");-->
-	addFileButton.innerHTML="Add Photo";
-	cellPhoto.appendChild(addFileButton);
+	var photoDiv = getFileUploadDiv();
+		
+	cellPhoto.innerHTML = photoDiv;
 
 	var cellName = row.insertCell(1);
 	cellName.innerHTML = "Name";
@@ -214,8 +199,8 @@ function addRow(tableID) {
 	cellCategory.setAttribute("contenteditable", "true");
 		
 	var cellDateAdded = row.insertCell(5);
-	cellDateAdded.innerHTML = "DateAdded";
-	cellDateAdded.setAttribute("contenteditable", "true");
+	cellDateAdded.innerHTML = "31-Oct-2012";
+	cellDateAdded.setAttribute("contenteditable", "false");
 	
 	var cellCost = row.insertCell(6);
 	cellCost.innerHTML = "Cost";
@@ -227,15 +212,15 @@ function addRow(tableID) {
 	
 	var cellNoWorn = row.insertCell(8);
 	cellNoWorn.innerHTML = "#Worn";
-	cellNoWorn.setAttribute("contenteditable", "true");
+	cellNoWorn.setAttribute("contenteditable", "false");
 	
 	var cellCostPerWear = row.insertCell(9);
 	cellCostPerWear.innerHTML = "CostPerWear";
-	cellCostPerWear.setAttribute("contenteditable", "true");
+	cellCostPerWear.setAttribute("contenteditable", "false");
 	
 	var cellLastWorn = row.insertCell(10);
-	cellLastWorn.innerHTML = "LastWorn";
-	cellLastWorn.setAttribute("contenteditable", "true");
+	cellLastWorn.innerHTML = "Last Worn";
+	cellLastWorn.setAttribute("contenteditable", "false");
 
 
 	 var cellSelect = row.insertCell(11);
@@ -315,4 +300,17 @@ function closeDeleteDialog() {
 function closeAddItemDialog() {
 	$('#addNewItemDialog').modal('hide'); 
 };
+
+function getFileUploadDiv(){
+	
+	
+	var result = "<div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">"+
+    "<div class=\"fileupload-preview thumbnail\" style=\"max-width: 100px; max-height: 100px; width: 100px; height: 100px;\"></div>"+
+    "<div><div class=\"btn btn-file\"><span class=\"fileupload-new\"><i class=\"icon-pencil\"></i></span>"+
+    "<span class=\"fileupload-exists\"><i class=\"icon-pencil\"></i></span><input type=\"file\" /></div>"+
+    "<a href=\"#\" class=\"btn fileupload-exists\" data-dismiss=\"fileupload\"><i class=\"icon-remove\"></i></a>"+
+    "</div></div>";
+	
+	return result;
+}
 
