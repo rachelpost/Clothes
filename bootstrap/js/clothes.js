@@ -316,9 +316,8 @@ function getFileUploadDiv(){
 	
 	var result = "<div class=\"fileupload fileupload-new\" data-provides=\"fileupload\">"+
     "<div class=\"fileupload-preview thumbnail\" style=\"max-width: 100px; max-height: 100px; width: 100px; height: 100px;\"></div>"+
-    "<div><div class=\"btn btn-file\"><span class=\"fileupload-new\"><i class=\"icon-pencil\"></i></span>"+
-    "<span class=\"fileupload-exists\"><i class=\"icon-pencil\"></i></span><input type=\"file\" /></div>"+
-    "<a href=\"#\" class=\"btn fileupload-exists\" data-dismiss=\"fileupload\"><i class=\"icon-remove\"></i></a>"+
+    "<div><div class=\"btn btn-file\"><span class=\"fileupload-new\"><img class=\"iconImg\" src=\"images/uploadIcon66.png\"></span>"+
+    "<span class=\"fileupload-exists\"><img class=\"iconImg\" src=\"images/uploadIcon66.png\"></span><input type=\"file\" /></div>"+
     "</div></div>";
 	
 	return result;
